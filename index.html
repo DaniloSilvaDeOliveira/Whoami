@@ -4,75 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danilo S. Oliveira - Analista de Segurança da Informação</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
+        /* CSS Customizado para manter a identidade visual "hacker" */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0a0a0a;
             color: #e0e0e0;
         }
+
         .font-hacker {
             font-family: 'Roboto Mono', monospace;
         }
+
         .text-neon-green {
             color: #39ff14;
         }
+
         .border-neon-green {
             border-color: #39ff14;
         }
+        
         .shadow-neon-green {
             box-shadow: 0 0 15px #39ff14;
         }
-        .nav-link {
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-            border-radius: 0.375rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: #d1d5db; /* gray-300 */
-            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-            transition-duration: 150ms;
-        }
-        .nav-link:hover {
-            background-color: #374151; /* gray-700 */
-            color: #fff;
-        }
-        .nav-link.active {
-            background-color: #111827; /* gray-900 */
-            color: #fff;
-        }
-        .section-title {
-            font-size: 1.875rem; /* text-3xl */
-            line-height: 2.25rem;
-            font-family: 'Roboto Mono', monospace;
-            color: #39ff14;
-            margin-bottom: 2rem;
-            letter-spacing: 0.05em; /* slightly reduced for better readability */
-            font-weight: 700;
-        }
-        .card {
-            background-color: rgba(31, 41, 55, 0.5); /* gray-800 with opacity */
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            border: 1px solid #374151; /* gray-700 */
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-            backdrop-filter: blur(4px);
-        }
-        .tag { /* Used for general tags if needed, but skills section has its own styling now */
-            display: inline-block;
-            background-color: #374151; /* gray-700 */
-            color: #39ff14;
-            font-size: 0.75rem;
-            font-family: 'Roboto Mono', monospace;
-            padding: 0.25rem 0.5rem;
-            border-radius: 9999px;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
+
+        /* Animação de digitação para o título principal */
         .typewriter h1 {
             overflow: hidden;
             border-right: .15em solid #39ff14;
@@ -83,29 +52,36 @@
                 typing 3.5s steps(40, end),
                 blink-caret .75s step-end infinite;
         }
+
         @keyframes typing {
             from { width: 0 }
             to { width: 100% }
         }
+
         @keyframes blink-caret {
             from, to { border-color: transparent }
             50% { border-color: #39ff14; }
         }
+
+        /* Efeito "glitch" ao passar o mouse */
         .glitch-hover:hover {
             animation: glitch 0.3s linear infinite alternate-reverse;
         }
-        @keyframes glitch{
-          0%{
-            text-shadow: 0.05em 0 0 rgba(0,255,0,0.75),
-                        -0.05em -0.025em 0 rgba(255,0,0,0.75),
-                        -0.025em 0.05em 0 rgba(0,0,255,0.75);
-          }
-          100%{
-            text-shadow: -0.05em 0 0 rgba(0,255,0,0.75),
-                        0.025em 0.025em 0 rgba(255,0,0,0.75),
-                        -0.05em -0.05em 0 rgba(0,0,255,0.75);
-          }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 0.05em 0 0 rgba(0,255,0,0.75),
+                             -0.05em -0.025em 0 rgba(255,0,0,0.75),
+                             -0.025em 0.05em 0 rgba(0,0,255,0.75);
+            }
+            100% {
+                text-shadow: -0.05em 0 0 rgba(0,255,0,0.75),
+                             0.025em 0.025em 0 rgba(255,0,0,0.75),
+                             -0.05em -0.05em 0 rgba(0,0,255,0.75);
+            }
         }
+
+        /* Estilização da barra de rolagem */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -119,55 +95,36 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #2faf0a;
         }
-        .hobby-badge {
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Center content within badge */
-            gap: 0.5rem; /* Replaced space-x-2 for flex gap */
-            /* Removed fixed background, border, padding to apply directly if needed or via card */
+        
+        /* Estilos para animação de scroll */
+        [data-scroll] {
+            transition: opacity 0.8s, transform 0.8s;
+            opacity: 0;
+            transform: translateY(30px);
         }
-        .hobby-icon {
-            color: #39ff14; /* text-neon-green */
-            font-size: 1.125rem; /* text-lg */
+        [data-scroll="in"] {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .hobby-text {
-            color: #d1d5db; /* text-gray-300 */
-            font-size: 0.875rem; /* text-sm */
-            font-family: 'Roboto Mono', monospace;
-        }
-
-        /* New Skill Item Styling */
-        .skill-item {
-            @apply flex items-center bg-gray-700 bg-opacity-60 p-3 rounded-md border border-gray-600 hover:border-neon-green transition-all duration-200;
-        }
-        .skill-icon {
-            @apply text-neon-green text-xl mr-3; /* Increased size and margin */
-        }
-        .skill-name {
-            @apply text-gray-200 font-semibold;
-        }
-         .skill-category-title {
-            @apply text-xl font-hacker text-neon-green mb-4 border-b-2 border-neon-green pb-2;
-        }
-
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="bg-black bg-opacity-80 backdrop-blur-md sticky top-0 z-50 shadow-md">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
+                <div class="flex-shrink-0">
                     <a href="#hero" class="font-hacker text-xl text-neon-green glitch-hover">TryckMaster/></a>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#about" class="nav-link">Sobre Mim</a>
-                        <a href="#skills" class="nav-link">Habilidades</a>
-                        <a href="#achievements" class="nav-link">Conquistas</a>
-                        <a href="#intel-feed" class="nav-link">Write-Ups</a>
-                        <a href="#education" class="nav-link">Educação</a>
-                        <a href="#contact" class="nav-link">Contato</a>
+                        <a href="#about" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre Mim</a>
+                        <a href="#skills" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Habilidades</a>
+                        <a href="#achievements" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Conquistas</a>
+                        <a href="#intel-feed" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Write-Ups</a>
+                        <a href="#education" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Educação</a>
+                        <a href="#contact" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Contato</a>
                     </div>
                 </div>
                 <div class="md:hidden">
@@ -177,292 +134,267 @@
                 </div>
             </div>
         </nav>
-        <div id="mobile-menu" class="md:hidden hidden bg-black bg-opacity-90">
-            <a href="#about" class="block nav-link text-center">Sobre Mim</a>
-            <a href="#skills" class="block nav-link text-center">Habilidades</a>
-            <a href="#achievements" class="block nav-link text-center">Conquistas</a>
-            <a href="#intel-feed" class="block nav-link text-center">Write-Ups</a>
-            <a href="#education" class="block nav-link text-center">Educação</a>
-            <a href="#contact" class="block nav-link text-center">Contato</a>
+        <div id="mobile-menu" class="md:hidden hidden bg-black/95">
+            <a href="#about" class="block text-gray-300 hover:bg-gray-700 hover:text-white text-center px-3 py-3 rounded-md text-base font-medium transition-colors">Sobre Mim</a>
+            <a href="#skills" class="block text-gray-300 hover:bg-gray-700 hover:text-white text-center px-3 py-3 rounded-md text-base font-medium transition-colors">Habilidades</a>
+            <a href="#achievements" class="block text-gray-300 hover:bg-gray-700 hover:text-white text-center px-3 py-3 rounded-md text-base font-medium transition-colors">Conquistas</a>
+            <a href="#intel-feed" class="block text-gray-300 hover:bg-gray-700 hover:text-white text-center px-3 py-3 rounded-md text-base font-medium transition-colors">Write-Ups</a>
+            <a href="#education" class="block text-gray-300 hover:bg-gray-700 hover:text-white text-center px-3 py-3 rounded-md text-base font-medium transition-colors">Educação</a>
+            <a href="#contact" class="block text-gray-300 hover:bg-gray-700 hover:text-white text-center px-3 py-3 rounded-md text-base font-medium transition-colors">Contato</a>
         </div>
     </header>
 
-    <section id="hero" class="min-h-screen flex items-center justify-center text-center bg-cover bg-center" style="background-image: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.95)), url('https://placehold.co/1920x1080/0a0a0a/0a6a0a?text=TryckMaster');">
-        <div class="container mx-auto px-4">
-            <div class="typewriter max-w-3xl mx-auto">
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-hacker text-neon-green mb-4">Danilo S. Oliveira</h1>
-            </div>
-            <p class="text-xl sm:text-2xl text-gray-300 font-hacker mb-8">
-                Analista de Segurança da Informação | Segurança de Aplicações | Segurança Ofensiva
-            </p>
-            <p class="text-md sm:text-lg text-gray-400 italic max-w-2xl mx-auto">
-                "I am a hacker, and this is my manifesto."
-            </p>
-            <a href="#about" class="mt-10 inline-block px-8 py-3 border-2 border-neon-green text-neon-green font-hacker text-lg rounded-md hover:bg-neon-green hover:text-black transition-colors duration-300 glitch-hover">
-                <i class="fas fa-arrow-down mr-2"></i> //SAIBA_MAIS
-            </a>
-        </div>
-    </section>
-
-    <section id="about" class="py-16 sm:py-24 bg-gray-900">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title text-center glitch-hover">Sobre Mim</h2>
-            <div class="max-w-4xl mx-auto card md:flex md:items-start md:space-x-8">
-                <div class="md:w-1/3 mb-6 md:mb-0 flex flex-col items-center">
-                    <img src="photo.jpg" alt="Foto de Danilo S. Oliveira" class="rounded-full w-48 h-48 md:w-56 md:h-56 object-cover border-4 border-neon-green shadow-neon-green">
-                    <div class="mt-6 space-y-3 w-full max-w-xs">
-                        <h4 class="font-hacker text-neon-green text-center text-lg mb-2">//ROTINAS_OFFLINE:</h4>
-                        <div class="hobby-badge bg-gray-700 bg-opacity-70 p-2 rounded-md border border-gray-600 hover:border-neon-green transition-all duration-200">
-                            <i class="fas fa-gamepad hobby-icon"></i>
-                            <span class="hobby-text">Video Games</span>
-                        </div>
-                        <div class="hobby-badge bg-gray-700 bg-opacity-70 p-2 rounded-md border border-gray-600 hover:border-neon-green transition-all duration-200">
-                            <i class="fas fa-book-open hobby-icon"></i>
-                            <span class="hobby-text">Leitura</span>
-                        </div>
-                        <div class="hobby-badge bg-gray-700 bg-opacity-70 p-2 rounded-md border border-gray-600 hover:border-neon-green transition-all duration-200">
-                            <i class="fas fa-guitar hobby-icon"></i>
-                            <span class="hobby-text">Violão/Guitarra</span>
-                        </div>
-                        <div class="hobby-badge bg-gray-700 bg-opacity-70 p-2 rounded-md border border-gray-600 hover:border-neon-green transition-all duration-200">
-                            <i class="fas fa-dumbbell hobby-icon"></i>
-                            <span class="hobby-text">Academia</span>
-                        </div>
-                    </div>
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center justify-center text-center bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 1)), url('https://placehold.co/1920x1080/0a0a0a/0a0a0a?text=');">
+            <div class="container mx-auto px-4">
+                <div class="typewriter max-w-3xl mx-auto">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-hacker text-neon-green mb-4">Danilo S. Oliveira</h1>
                 </div>
-                <div class="md:w-2/3">
-                    <h3 class="text-2xl font-hacker text-neon-green mb-4">//IDENTIDADE: DANILO SILVA DE OLIVEIRA <span class="text-gray-400 text-xl font-normal">aka TryckMaster</span></h3>
-                    <p class="text-lg mb-4">
-                        Sou Analista de Segurança da Informação formado em Análise e Desenvolvimento de Sistemas pela FATEC Mogi Mirim, com foco em Segurança de Aplicações (AppSec). Tenho experiência prática com ferramentas DAST, SAST e SCA, modelagem de ameaças, integração de segurança em pipelines CI/CD e pentests.
-                    </p>
-                    <p class="text-lg mb-4">
-                        Diferenciais incluem a conquista do 1º lugar no Hacking in Sul e a vitória no Nexus Guardians CTF. Mantenho aprendizado contínuo focado em segurança ofensiva e desenvolvimento seguro.
-                    </p>
-                    <div class="mt-6">
-                        <h3 class="text-xl font-hacker text-neon-green mb-2">//LANG_PACKS:</h3>
-                        <p class="text-lg"><span class="tag">PT-BR</span> Nativo</p>
-                        <p class="text-lg"><span class="tag">EN-US</span> Profissional</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="py-16 sm:py-24 bg-gray-900">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title text-center glitch-hover mb-12" style="font-size:2.5rem; letter-spacing:0.08em;">Habilidades Técnicas</h2>
-            <div class="flex flex-col items-center justify-center">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
-                    <div class="card section-bg p-6 rounded-lg flex flex-col">
-                        <div class="flex items-center mb-4">
-                            <i data-lucide="shield-check" class="text-neon-green mr-3"></i>
-                            <h3 class="text-xl font-hacker font-semibold text-neon-green">Red Teaming &amp; Pentesting</h3>
-                        </div>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1 font-hacker text-sm">
-                            <li>Testes em Aplicações Web/Mobile</li>
-                            <li>Testes de Invasão em Infraestrutura</li>
-                            <li>Testes de Segurança em APIs</li>
-                            <li>Testes de Segurança em Cloud</li>
-                            <li>Reverse Engineer</li>
-                            <li>Análise de Código Estático/Dinâmico</li>
-                            <li>Relatórios Técnicos Detalhados</li>
-                        </ul>
-                    </div>
-                    <div class="card section-bg p-6 rounded-lg flex flex-col">
-                        <div class="flex items-center mb-4">
-                            <i data-lucide="server" class="text-neon-green mr-3"></i>
-                            <h3 class="text-xl font-hacker font-semibold text-neon-green">AppSec &amp; DevSecOps</h3>
-                        </div>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1 font-hacker text-sm">
-                            <li>Modelagem de Ameaças</li>
-                            <li>Desenvolvimento Seguro</li>
-                            <li>SAST / DAST / IAST / SCA</li>
-                            <li>Code Review</li>
-                            <li>Security Champion</li>
-                            <li>Desenvolvimento e Integração de Segurança em CI/CD</li>
-                            <li>Ciclo de Vida de Desenvolvimento Seguro (SSDLC)</li>
-                            <li>Gestão de Vulnerabilidades</li>
-                        </ul>
-                    </div>
-                    <div class="card section-bg p-6 rounded-lg flex flex-col">
-                        <div class="flex items-center mb-4">
-                            <i data-lucide="lock" class="text-neon-green mr-3"></i>
-                            <h3 class="text-xl font-hacker font-semibold text-neon-green">Criptografia e Segurança de Dados</h3>
-                        </div>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1 font-hacker text-sm">
-                            <li>Criptografia Simétrica/Assimétrica</li>
-                            <li>Hashing, Assinaturas Digitais</li>
-                            <li>TLS/SSL</li>
-                            <li>Proteção de Dados (LGPD/GDPR - Noções)</li>
-                        </ul>
-                    </div>
-                </div>
-                <script src="https://unpkg.com/lucide@latest"></script>
-                <script>
-                    lucide.createIcons();
-                </script>
-            </div>
-        </div>
-    </section>
-
-    <section id="achievements" class="py-16 sm:py-24">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title text-center glitch-hover">Conquistas e Certificações</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="card">
-                    <h3 class="text-xl font-hacker text-neon-green mb-3">//VITÓRIAS EM COMPETIÇÕES DE CTFs:</h3>
-                    <ul class="list-disc list-inside text-gray-300 space-y-2">
-                        <li>
-                            <a href="https://www.linkedin.com/posts/bruno-bulle_compassuol-hackincariri-hackinsul-activity-7203376704583565313-Q7Ak?utm_source=share&utm_medium=member_desktop&rcm=ACoAACg1cTIBAkJubGAYV4UrEDu6-AH4CxGD6e0" target="_blank" rel="noopener noreferrer" class="cert-link">
-                                1º Lugar no campeonato de CTF Hack in Sul 2024
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/posts/danilosilvadeoliveira_activity-7194418422867226624-pzyh?utm_source=share&utm_medium=member_desktop&rcm=ACoAACg1cTIBAkJubGAYV4UrEDu6-AH4CxGD6e0" target="_blank" rel="noopener noreferrer" class="cert-link">
-                                Vencedor do evento de CTF NexusGuardians
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="card">
-                    <h3 class="text-xl font-hacker text-neon-green mb-3">//CERTIFICAÇÕES:</h3>
-                    <ul class="list-disc list-inside text-gray-300 space-y-2">
-                        <li>
-                            <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXd8/AVXTXD2+Gtdi9bwWxO3n+N4hOUinQpfuyFkhNjvClGVmKQgg0BT9Acmr0jGCpsgIw2sCEFkmVPMvcUPjq3M=" target="_blank" rel="noopener noreferrer" class="cert-link">
-                                Certified Network Security Practitioner (CNSP)
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXbcC1V21mkfSicOAoYU4qSz6gKA99n7SXQFff8aocGf612qEROZDGizAJRgkANeNl6gqk94HCPP/WgFHt9GuCzc=" target="_blank" rel="noopener noreferrer" class="cert-link">
-                                Certified Appsec Practitioner (CAP)
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=6A8E0B26F1E8469FA3D8A2CF32354BD049D188D0BF9137EAAB8838D839995C0A" target="_blank" rel="noopener noreferrer" class="cert-link">
-                                Oracle Cloud Infrastructure 2023 Certified Foundations Associate
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.credly.com/badges/a0e33eaf-05e8-4efe-9592-b961b7ac0824/linked_in_profile" target="_blank" rel="noopener noreferrer" class="cert-link">
-                                AWS Certified Cloud Practitioner
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3 class="text-xl font-hacker text-neon-green mb-3">//CERTIFICADOS &amp; BADGES:</h3>
-                    <ul class="list-disc list-inside text-gray-300 space-y-2">
-                        <li>
-                            <a href="https://desecsecurity.com/valida-certificado/YSRJ-COBPP-CCPW" target="_blank" rel="noopener noreferrer" class="cert-link">
-                                Introdução ao Pentest na Prática
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://desecsecurity.com/valida-certificado/ZTQJ-QZROC-HBLZ" target="_blank" rel="noopener noreferrer" class="cert-link">
-                                Novo Pentest Profissional
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://labs.cyberwarfare.live/badge/image/6772e447f6d2b394d97976b5" target="_blank" rel="noopener noreferrer" class="cert-link">
-                                Formação Multi-Cloud Red Team Analyst (MCRTA) - CyberWarFare Labs
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.credly.com/badges/ce445958-aac0-4ad0-af89-a13aac05b37f/linked_in_profile" target="_blank" rel="noopener noreferrer" class="cert-link">
-                                AWS Cloud Quest: Cloud Practitioner
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.credly.com/badges/95988343-ae38-4793-89d3-0908d1e863e3" target="_blank" rel="noopener noreferrer" class="cert-link">
-                                AWS Partner: Cloud Economics Essentials
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.credly.com/badges/9c1b3d59-f1c7-4e88-884d-c932c78a5b79/public_url" target="_blank" rel="noopener noreferrer" class="cert-link">
-                                AWS Partner: Technical Accredited
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.credly.com/badges/ddafcf5e-d2e6-47e1-838d-2bf654a3dafd" target="_blank" rel="noopener noreferrer" class="cert-link">
-                                AWS Partner: Sales Accreditation
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <style>
-            .cert-link {
-                color: #e0e0e0;
-                
-                text-decoration: none;
-                transition: color 0.2s;
-            }
-            .cert-link:hover, .cert-link:focus {
-                color: #39ff14;
-            }
-        </style>
-    </section>
-
-    <section id="intel-feed" class="py-16 sm:py-24 bg-gray-900">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title text-center glitch-hover">Write-Ups &amp; Relatórios de Pentest</h2>
-            <div class="card max-w-4xl mx-auto p-2 sm:p-4">
-                 <div class="aspect-w-16 aspect-h-9" style="height: 600px;"> <iframe src="https://tryckmaster.notion.site/ebd/1fa39e805b31800bbc5dccd1df6802b2?v=1fa39e805b3180d4a228000c6182c12b" width="100%" height="100%" frameborder="0" allowfullscreen class="rounded-md"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="education" class="py-16 sm:py-24">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title text-center glitch-hover">Formação Acadêmica</h2>
-            <div class="max-w-2xl mx-auto space-y-8">
-                <div class="card">
-                    <h3 class="text-xl font-semibold text-white">Fatec Mogi Mirim - Arthur de Azevedo</h3>
-                    <p class="text-neon-green font-hacker">Tecnólogo, Análise e Desenvolvimento de Sistemas</p>
-                    <p class="text-gray-400 text-sm">(janeiro de 2022 - dezembro de 2024)</p>
-                </div>
-                <div class="card">
-                    <h3 class="text-xl font-semibold text-white">ETEC Pedro Ferreira Alves</h3>
-                    <p class="text-neon-green font-hacker">Ensino Técnico, Analise e Desenvolvimento de Sistemas</p>
-                    <p class="text-gray-400 text-sm">(janeiro de 2021 - junho de 2022)</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-16 sm:py-24 bg-gray-900">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="section-title glitch-hover">Entre em Contato</h2>
-            <p class="text-lg text-gray-300 mb-8 max-w-xl mx-auto">
-                Interessado em discutir como minhas habilidades podem agregar valor à sua equipe ou projeto? <br class="hidden sm:inline">Vamos estabelecer uma conexão.
-            </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="mailto:danilo.soliveira@uol.com.br" class="inline-flex items-center px-6 py-3 border-2 border-neon-green text-neon-green font-hacker text-lg rounded-md hover:bg-neon-green hover:text-black transition-colors duration-300 glitch-hover">
-                    <i class="fas fa-envelope mr-3"></i> //ENVIAR_MENSAGEM
-                </a>
-                <a href="https://www.linkedin.com/in/danilosilvadeoliveira" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 border-2 border-neon-green text-neon-green font-hacker text-lg rounded-md hover:bg-neon-green hover:text-black transition-colors duration-300 glitch-hover">
-                    <i class="fab fa-linkedin mr-3"></i> //PERFIL_LINKEDIN
+                <p class="text-xl sm:text-2xl text-gray-300 font-hacker mb-8">
+                    Analista de Segurança da Informação | Application Security | Red Team
+                </p>
+                <p class="text-md sm:text-lg text-gray-400 italic max-w-2xl mx-auto">
+                    "I am a hacker, and this is my manifesto."
+                </p>
+                <a href="#about" class="mt-10 inline-block px-8 py-3 border-2 border-neon-green text-neon-green font-hacker text-lg rounded-md hover:bg-neon-green hover:text-black transition-all duration-300 glitch-hover shadow-lg shadow-neon-green/20">
+                    <i class="fas fa-arrow-down mr-2"></i> //INICIAR_EXPLORAÇÃO
                 </a>
             </div>
-             <p class="text-gray-500 mt-12 font-hacker text-sm">Mogi Mirim, São Paulo, Brasil</p>
-        </div>
-    </section>
+        </section>
 
-    <footer class="py-8 text-center bg-black">
+        <!-- About Section -->
+        <section id="about" class="py-20 sm:py-28 bg-gray-900/50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div data-scroll>
+                    <h2 class="text-3xl md:text-4xl font-hacker text-neon-green mb-12 tracking-wider font-bold text-center glitch-hover">Sobre Mim</h2>
+                    <div class="max-w-5xl mx-auto bg-gray-900/70 backdrop-blur-sm border border-gray-700 rounded-lg p-6 md:p-8 shadow-2xl md:flex md:items-start md:space-x-8">
+                        <div class="md:w-1/3 mb-6 md:mb-0 flex flex-col items-center text-center">
+                            <img src="photo.jpg" alt="Foto de Danilo S. Oliveira" class="rounded-full w-48 h-48 md:w-56 md:h-56 object-cover border-4 border-neon-green shadow-neon-green">
+                            <div class="mt-6 w-full max-w-xs">
+                                <h4 class="font-hacker text-neon-green text-lg mb-4">//ROTINAS_OFFLINE:</h4>
+                                <div class="grid grid-cols-2 gap-3 text-sm">
+                                    <div class="flex items-center justify-center gap-2 bg-gray-700/70 p-2 rounded-md border border-gray-600 hover:border-neon-green transition-all">
+                                        <i class="fas fa-gamepad text-neon-green"></i> <span class="text-gray-300 font-hacker">Games</span>
+                                    </div>
+                                    <div class="flex items-center justify-center gap-2 bg-gray-700/70 p-2 rounded-md border border-gray-600 hover:border-neon-green transition-all">
+                                        <i class="fas fa-book-open text-neon-green"></i> <span class="text-gray-300 font-hacker">Leitura</span>
+                                    </div>
+                                    <div class="flex items-center justify-center gap-2 bg-gray-700/70 p-2 rounded-md border border-gray-600 hover:border-neon-green transition-all">
+                                        <i class="fas fa-guitar text-neon-green"></i> <span class="text-gray-300 font-hacker">Música</span>
+                                    </div>
+                                    <div class="flex items-center justify-center gap-2 bg-gray-700/70 p-2 rounded-md border border-gray-600 hover:border-neon-green transition-all">
+                                        <i class="fas fa-dumbbell text-neon-green"></i> <span class="text-gray-300 font-hacker">Academia</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-hacker text-neon-green mb-4">//ID: Danilo S. Oliveira <span class="text-gray-400 text-xl font-normal">aka TryckMaster</span></h3>
+                            <p class="text-gray-300 mb-4 text-base md:text-lg leading-relaxed">
+                                Sou Analista de Segurança da Informação formado em Análise e Desenvolvimento de Sistemas pela FATEC Mogi Mirim, com foco em Segurança de Aplicações (AppSec). Tenho experiência prática com ferramentas DAST, SAST e SCA, modelagem de ameaças, integração de segurança em pipelines CI/CD e pentests.
+                            </p>
+                            <p class="text-gray-300 mb-6 text-base md:text-lg leading-relaxed">
+                                Diferenciais incluem a conquista do 2º lugar na competição da Over Security Inteligence e 1º lugar no Hacking in Sul e a vitória no Nexus Guardians CTF. Mantenho aprendizado contínuo focado em segurança ofensiva e desenvolvimento seguro.
+                            </p>
+                            <div class="mt-6 border-t border-gray-700 pt-6">
+                                <h4 class="text-xl font-hacker text-neon-green mb-4">//LANG_PACKS:</h4>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div class="bg-gray-800/60 border border-gray-700 p-3 rounded-md flex items-center justify-between hover:border-neon-green transition-colors">
+                                        <span class="font-hacker text-neon-green">PT-BR</span>
+                                        <span class="text-gray-300 text-sm font-medium">Nativo</span>
+                                    </div>
+                                    <div class="bg-gray-800/60 border border-gray-700 p-3 rounded-md flex items-center justify-between hover:border-neon-green transition-colors">
+                                        <span class="font-hacker text-neon-green">EN-US</span>
+                                        <span class="text-gray-300 text-sm font-medium">Profissional</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 sm:py-28">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div data-scroll>
+                    <h2 class="text-3xl md:text-4xl font-hacker text-neon-green mb-12 tracking-wider font-bold text-center glitch-hover">Habilidades Técnicas</h2>
+                    <div class="max-w-6xl mx-auto space-y-12">
+                        <!-- Categoria de Habilidade -->
+                        <div>
+                            <h3 class="text-2xl font-hacker text-neon-green mb-6 border-b-2 border-neon-green/50 pb-2 flex items-center gap-3"><i data-lucide="shield-check"></i> Red Teaming & Pentesting</h3>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                                <div class="bg-gray-800/60 p-4 rounded-md text-center hover:bg-gray-700/80 transition-all duration-300 border border-gray-700 hover:border-neon-green">
+                                    <p class="font-hacker text-gray-300 text-sm">Web/Mobile Pentest</p>
+                                </div>
+                                <div class="bg-gray-800/60 p-4 rounded-md text-center hover:bg-gray-700/80 transition-all duration-300 border border-gray-700 hover:border-neon-green">
+                                    <p class="font-hacker text-gray-300 text-sm">Infra Pentest</p>
+                                </div>
+                                <div class="bg-gray-800/60 p-4 rounded-md text-center hover:bg-gray-700/80 transition-all duration-300 border border-gray-700 hover:border-neon-green">
+                                    <p class="font-hacker text-gray-300 text-sm">API Security</p>
+                                </div>
+                                <div class="bg-gray-800/60 p-4 rounded-md text-center hover:bg-gray-700/80 transition-all duration-300 border border-gray-700 hover:border-neon-green">
+                                    <p class="font-hacker text-gray-300 text-sm">Cloud Security</p>
+                                </div>
+                                <div class="bg-gray-800/60 p-4 rounded-md text-center hover:bg-gray-700/80 transition-all duration-300 border border-gray-700 hover:border-neon-green">
+                                    <p class="font-hacker text-gray-300 text-sm">Reverse Engineering</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Categoria de Habilidade -->
+                        <div>
+                            <h3 class="text-2xl font-hacker text-neon-green mb-6 border-b-2 border-neon-green/50 pb-2 flex items-center gap-3"><i data-lucide="server-cog"></i> AppSec & DevSecOps</h3>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                                <div class="bg-gray-800/60 p-4 rounded-md text-center hover:bg-gray-700/80 transition-all duration-300 border border-gray-700 hover:border-neon-green">
+                                    <p class="font-hacker text-gray-300 text-sm">Threat Modeling</p>
+                                </div>
+                                <div class="bg-gray-800/60 p-4 rounded-md text-center hover:bg-gray-700/80 transition-all duration-300 border border-gray-700 hover:border-neon-green">
+                                    <p class="font-hacker text-gray-300 text-sm">Secure Coding</p>
+                                </div>
+                                <div class="bg-gray-800/60 p-4 rounded-md text-center hover:bg-gray-700/80 transition-all duration-300 border border-gray-700 hover:border-neon-green">
+                                    <p class="font-hacker text-gray-300 text-sm">SAST / DAST / SCA</p>
+                                </div>
+                                <div class="bg-gray-800/60 p-4 rounded-md text-center hover:bg-gray-700/80 transition-all duration-300 border border-gray-700 hover:border-neon-green">
+                                    <p class="font-hacker text-gray-300 text-sm">CI/CD Security</p>
+                                </div>
+                                <div class="bg-gray-800/60 p-4 rounded-md text-center hover:bg-gray-700/80 transition-all duration-300 border border-gray-700 hover:border-neon-green">
+                                    <p class="font-hacker text-gray-300 text-sm">SSDLC</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="py-20 sm:py-28 bg-gray-900/50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div data-scroll>
+                    <h2 class="text-3xl md:text-4xl font-hacker text-neon-green mb-12 tracking-wider font-bold text-center glitch-hover">Conquistas e Certificações</h2>
+                    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Card Conquista -->
+                        <div class="bg-gray-900/70 backdrop-blur-sm border border-gray-700 rounded-lg p-6 shadow-lg hover:border-neon-green transition-all duration-300 flex flex-col">
+                            <h3 class="text-xl font-hacker text-neon-green mb-4 flex items-center gap-3"><i class="fas fa-trophy"></i> Competições CTF</h3>
+                            <ul class="space-y-3 text-gray-300 flex-grow">
+                                <li><a href="https://www.linkedin.com/posts/over-security-intelligence_parab%C3%A9ns-aos-ganhadores-do-nosso-desafio-activity-7335460328740171777-fl7Z?utm_source=share&utm_medium=member_desktop&rcm=ACoAACg1cTIBAkJubGAYV4UrEDu6-AH4CxGD6e0" target="_blank" rel="noopener noreferrer" class="hover:text-neon-green transition-colors"><i class="fas fa-link fa-xs mr-2"></i>2º Lugar - Over Security Inteligence 2025</a></li>
+                                <li><a href="https://www.linkedin.com/posts/bruno-bulle_compassuol-hackincariri-hackinsul-activity-7203376704583565313-Q7Ak?utm_source=share&utm_medium=member_desktop&rcm=ACoAACg1cTIBAkJubGAYV4UrEDu6-AH4CxGD6e0" target="_blank" rel="noopener noreferrer" class="hover:text-neon-green transition-colors"><i class="fas fa-link fa-xs mr-2"></i>1º Lugar - Hack in Sul 2024</a></li>
+                                <li><a href="https://www.linkedin.com/posts/danilosilvadeoliveira_activity-7194418422867226624-pzyh?utm_source=share&utm_medium=member_desktop&rcm=ACoAACg1cTIBAkJubGAYV4UrEDu6-AH4CxGD6e0" target="_blank" rel="noopener noreferrer" class="hover:text-neon-green transition-colors"><i class="fas fa-link fa-xs mr-2"></i>Vencedor - NexusGuardians CTF</a></li>
+                            </ul>
+                        </div>
+                        <!-- Card Conquista -->
+                        <div class="bg-gray-900/70 backdrop-blur-sm border border-gray-700 rounded-lg p-6 shadow-lg hover:border-neon-green transition-all duration-300 flex flex-col">
+                            <h3 class="text-xl font-hacker text-neon-green mb-4 flex items-center gap-3"><i class="fas fa-certificate"></i> Certificações</h3>
+                            <ul class="space-y-3 text-gray-300 flex-grow">
+                                <li><a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXd8/AVXTXD2+Gtdi9bwWxO3n+N4hOUinQpfuyFkhNjvClGVmKQgg0BT9Acmr0jGCpsgIw2sCEFkmVPMvcUPjq3M=" target="_blank" rel="noopener noreferrer" class="hover:text-neon-green transition-colors"><i class="fas fa-link fa-xs mr-2"></i>CNSP - Certified Network Security Practitioner</a></li>
+                                <li><a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXbcC1V21mkfSicOAoYU4qSz6gKA99n7SXQFff8aocGf612qEROZDGizAJRgkANeNl6gqk94HCPP/WgFHt9GuCzc=" target="_blank" rel="noopener noreferrer" class="hover:text-neon-green transition-colors"><i class="fas fa-link fa-xs mr-2"></i>CAP - Certified Appsec Practitioner</a></li>
+                                <li><a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=6A8E0B26F1E8469FA3D8A2CF32354BD049D188D0BF9137EAAB8838D839995C0A" target="_blank" rel="noopener noreferrer" class="hover:text-neon-green transition-colors"><i class="fas fa-link fa-xs mr-2"></i>OCI Foundations Associate</a></li>
+                                <li><a href="https://www.credly.com/badges/a0e33eaf-05e8-4efe-9592-b961b7ac0824/linked_in_profile" target="_blank" rel="noopener noreferrer" class="hover:text-neon-green transition-colors"><i class="fas fa-link fa-xs mr-2"></i>AWS Cloud Practitioner</a></li>
+                            </ul>
+                        </div>
+                        <!-- Card Conquista -->
+                        <div class="bg-gray-900/70 backdrop-blur-sm border border-gray-700 rounded-lg p-6 shadow-lg hover:border-neon-green transition-all duration-300 flex flex-col">
+                            <h3 class="text-xl font-hacker text-neon-green mb-4 flex items-center gap-3"><i class="fas fa-award"></i> Cursos & Badges</h3>
+                            <ul class="space-y-3 text-gray-300 flex-grow">
+                                <li><a href="https://desecsecurity.com/valida-certificado/ZTQJ-QZROC-HBLZ" target="_blank" rel="noopener noreferrer" class="hover:text-neon-green transition-colors"><i class="fas fa-link fa-xs mr-2"></i>Novo Pentest Profissional</a></li>
+                                <li><a href="https://labs.cyberwarfare.live/badge/image/6772e447f6d2b394d97976b5" target="_blank" rel="noopener noreferrer" class="hover:text-neon-green transition-colors"><i class="fas fa-link fa-xs mr-2"></i>Multi-Cloud Red Team Analyst</a></li>
+                                <li><a href="https://www.credly.com/badges/ce445958-aac0-4ad0-af89-a13aac05b37f/linked_in_profile" target="_blank" rel="noopener noreferrer" class="hover:text-neon-green transition-colors"><i class="fas fa-link fa-xs mr-2"></i>AWS Cloud Quest: Practitioner</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intel Feed Section -->
+        <section id="intel-feed" class="py-20 sm:py-28">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div data-scroll>
+                    <h2 class="text-3xl md:text-4xl font-hacker text-neon-green mb-12 tracking-wider font-bold text-center glitch-hover">Write-Ups & Relatórios</h2>
+                    <div class="max-w-5xl mx-auto bg-gray-900/70 backdrop-blur-sm border border-gray-700 rounded-lg p-2 sm:p-4 shadow-2xl">
+                        <div class="aspect-w-16 aspect-h-9 h-[600px]">
+                            <iframe src="https://tryckmaster.notion.site/ebd/1fa39e805b31800bbc5dccd1df6802b2?v=1fa39e805b3180d4a228000c6182c12b" width="100%" height="100%" frameborder="0" allowfullscreen class="rounded-md"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-20 sm:py-28 bg-gray-900/50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div data-scroll>
+                    <h2 class="text-3xl md:text-4xl font-hacker text-neon-green mb-16 tracking-wider font-bold text-center glitch-hover">Formação Acadêmica</h2>
+                    <div class="relative max-w-2xl mx-auto">
+                        <!-- Linha da Timeline -->
+                        <div class="absolute left-4 sm:left-1/2 top-2 h-full w-0.5 bg-gray-700 -translate-x-1/2"></div>
+                        
+                        <!-- Item da Timeline -->
+                        <div class="relative mb-12">
+                            <div class="absolute left-4 sm:left-1/2 top-2 w-4 h-4 bg-neon-green rounded-full -translate-x-1/2 border-4 border-gray-900"></div>
+                            <div class="sm:ml-[55%] sm:pl-8">
+                                <div class="bg-gray-900/70 backdrop-blur-sm border border-gray-700 rounded-lg p-6 shadow-lg">
+                                    <h3 class="text-xl font-semibold text-white">Fatec Mogi Mirim</h3>
+                                    <p class="text-neon-green font-hacker mt-1">Tecnólogo, Análise e Desenvolvimento de Sistemas</p>
+                                    <p class="text-gray-400 text-sm mt-2 font-hacker">// 2022 - 2024</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item da Timeline -->
+                        <div class="relative">
+                            <div class="absolute left-4 sm:left-1/2 top-2 w-4 h-4 bg-neon-green rounded-full -translate-x-1/2 border-4 border-gray-900"></div>
+                            <div class="sm:text-right sm:w-[45%] sm:pr-8">
+                                <div class="bg-gray-900/70 backdrop-blur-sm border border-gray-700 rounded-lg p-6 shadow-lg">
+                                    <h3 class="text-xl font-semibold text-white">ETEC Pedro Ferreira Alves</h3>
+                                    <p class="text-neon-green font-hacker mt-1">Técnico, Análise e Desenvolvimento de Sistemas</p>
+                                    <p class="text-gray-400 text-sm mt-2 font-hacker">// 2021 - 2022</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 sm:py-28">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div data-scroll>
+                    <h2 class="text-3xl md:text-4xl font-hacker text-neon-green mb-8 tracking-wider font-bold glitch-hover">Estabelecer Contato</h2>
+                    <p class="text-lg text-gray-300 mb-10 max-w-xl mx-auto">
+                        Interessado em discutir como minhas habilidades podem agregar valor à sua equipe ou projeto? Vamos iniciar uma conexão.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                        <a href="mailto:danilo.soliveira.si@gmail.com" class="inline-flex items-center px-6 py-3 border-2 border-neon-green text-neon-green font-hacker text-lg rounded-md hover:bg-neon-green hover:text-black transition-all duration-300 glitch-hover shadow-lg shadow-neon-green/20">
+                            <i class="fas fa-envelope mr-3"></i> //ENVIAR_SINAL
+                        </a>
+                        <a href="https://www.linkedin.com/in/danilosilvadeoliveira" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 border-2 border-neon-green text-neon-green font-hacker text-lg rounded-md hover:bg-neon-green hover:text-black transition-all duration-300 glitch-hover shadow-lg shadow-neon-green/20">
+                            <i class="fab fa-linkedin mr-3"></i> //PERFIL_LINKEDIN
+                        </a>
+                    </div>
+                    <p class="text-gray-500 mt-16 font-hacker text-sm">Mogi Mirim, São Paulo, Brasil</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8 text-center bg-black border-t border-gray-900">
         <p class="text-gray-500 font-hacker text-sm">
-            &copy; <span id="currentYear"></span> Danilo Silva De Oliveira.
+            &copy; <span id="currentYear"></span> Danilo Silva De Oliveira. Todos os direitos reservados.
         </p>
-        <p class="text-xs text-gray-600 font-hacker mt-2">
-            "O céu sobre o porto tinha cor de televisão num canal fora do ar."
+        <p class="text-xs text-gray-600 font-hacker mt-2 italic">
+            "O céu sobre o porto tinha cor de televisão num canal fora do ar." - William Gibson, Neuromancer
         </p>
     </footer>
 
     <script>
+        // --- Script para o ano atual no rodapé ---
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // --- Script para menu mobile ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuButton.addEventListener('click', () => {
@@ -471,39 +403,72 @@
         const mobileNavLinks = mobileMenu.querySelectorAll('a');
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden'); // Garante que o menu feche ao clicar
+                mobileMenu.classList.add('hidden');
             });
         });
         
-        const sections = document.querySelectorAll('section');
-        const navLinksDesktop = document.querySelectorAll('header nav div.hidden a'); // Seleciona links do desktop
-        const navLinksMobile = document.querySelectorAll('#mobile-menu a'); // Seleciona links do mobile
+        // --- Script para destacar link ativo no menu de navegação ---
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('header nav a');
 
         function setActiveLink() {
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 70) { // Ajuste para melhor precisão com header fixo
+                if (pageYOffset >= sectionTop - 70) {
                     current = section.getAttribute('id');
                 }
             });
 
-            navLinksDesktop.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-            navLinksMobile.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
+            navLinks.forEach(link => {
+                link.classList.remove('text-white', 'bg-gray-900');
+                link.classList.add('text-gray-300');
+                if (link.href.includes(current)) {
+                    link.classList.remove('text-gray-300');
+                    link.classList.add('text-white', 'bg-gray-900');
                 }
             });
         }
         window.addEventListener('scroll', setActiveLink);
-        window.addEventListener('load', setActiveLink); // Define o link ativo ao carregar a página
+        window.addEventListener('load', setActiveLink);
+
+        // --- Script para animação ao rolar a página ---
+        const scrollElements = document.querySelectorAll("[data-scroll]");
+        const elementInView = (el, dividend = 1) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+            );
+        };
+        const displayScrollElement = (element) => {
+            element.setAttribute('data-scroll', 'in');
+        };
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 1.25)) {
+                    displayScrollElement(el);
+                }
+            });
+        }
+        window.addEventListener("scroll", handleScrollAnimation);
+        handleScrollAnimation(); // Ativa a animação para elementos já visíveis no carregamento
+
+        // --- Script para header dinâmico ---
+        const header = document.querySelector('header');
+        const checkHeader = () => {
+            // Adiciona fundo ao header após rolar 50px
+            if (window.scrollY > 50) {
+                header.classList.add('bg-black/80', 'backdrop-blur-md', 'shadow-lg', 'shadow-black/20');
+            } else {
+                header.classList.remove('bg-black/80', 'backdrop-blur-md', 'shadow-lg', 'shadow-black/20');
+            }
+        };
+        window.addEventListener('scroll', checkHeader);
+        // Garante que o estado inicial seja verificado no carregamento da página
+        document.addEventListener('DOMContentLoaded', checkHeader);
+
+        // --- Inicializa ícones Lucide ---
+        lucide.createIcons();
     </script>
 </body>
 </html>
-
