@@ -106,6 +106,30 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Estilos para os botões de seleção de plataforma */
+        .platform-btn {
+            padding: 10px 20px;
+            font-family: 'Roboto Mono', monospace;
+            color: #e0e0e0;
+            background-color: #1f2937; /* bg-gray-800 */
+            border: 2px solid #4b5563; /* border-gray-600 */
+            border-radius: 6px; /* rounded-md */
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .platform-btn:hover {
+            border-color: #39ff14; /* border-neon-green */
+            color: #39ff14;
+        }
+
+        .active-platform-btn {
+            background-color: #39ff14;
+            color: #0a0a0a;
+            border-color: #39ff14;
+            box-shadow: 0 0 10px #39ff14;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -122,6 +146,7 @@
                         <a href="#about" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre Mim</a>
                         <a href="#skills" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Habilidades</a>
                         <a href="#achievements" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Conquistas</a>
+                        <a href="#platforms" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Plataformas</a>
                         <a href="#intel-feed" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Write-Ups</a>
                         <a href="#education" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Educação</a>
                         <a href="#contact" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Contato</a>
@@ -138,6 +163,7 @@
             <a href="#about" class="block text-gray-300 hover:bg-gray-700 hover:text-white text-center px-3 py-3 rounded-md text-base font-medium transition-colors">Sobre Mim</a>
             <a href="#skills" class="block text-gray-300 hover:bg-gray-700 hover:text-white text-center px-3 py-3 rounded-md text-base font-medium transition-colors">Habilidades</a>
             <a href="#achievements" class="block text-gray-300 hover:bg-gray-700 hover:text-white text-center px-3 py-3 rounded-md text-base font-medium transition-colors">Conquistas</a>
+            <a href="#platforms" class="block text-gray-300 hover:bg-gray-700 hover:text-white text-center px-3 py-3 rounded-md text-base font-medium transition-colors">Plataformas</a>
             <a href="#intel-feed" class="block text-gray-300 hover:bg-gray-700 hover:text-white text-center px-3 py-3 rounded-md text-base font-medium transition-colors">Write-Ups</a>
             <a href="#education" class="block text-gray-300 hover:bg-gray-700 hover:text-white text-center px-3 py-3 rounded-md text-base font-medium transition-colors">Educação</a>
             <a href="#contact" class="block text-gray-300 hover:bg-gray-700 hover:text-white text-center px-3 py-3 rounded-md text-base font-medium transition-colors">Contato</a>
@@ -308,8 +334,44 @@
             </div>
         </section>
 
+        <!-- Plataformas de Treinamento Section -->
+        <section id="platforms" class="py-20 sm:py-28">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div data-scroll>
+                    <h2 class="text-3xl md:text-4xl font-hacker text-neon-green mb-12 tracking-wider font-bold text-center glitch-hover">Plataformas de Treinamento</h2>
+                    <div class="max-w-5xl mx-auto bg-gray-900/70 backdrop-blur-sm border border-gray-700 rounded-lg p-6 md:p-8 shadow-2xl">
+                        <!-- Platform Selector Buttons -->
+                        <div id="platform-selector" class="flex flex-wrap justify-center gap-4 mb-8">
+                            <button data-platform="tryhackme" class="platform-btn active-platform-btn flex items-center">
+                                <i class="fas fa-terminal mr-2"></i> TryHackMe
+                            </button>
+                            <button data-platform="hackthebox" class="platform-btn flex items-center">
+                                <i class="fas fa-cube mr-2"></i> Hack The Box
+                            </button>
+                            <button data-platform="hackingclub" class="platform-btn flex items-center">
+                                <i class="fas fa-shield-alt mr-2"></i> Hacking Club
+                            </button>
+                            <!-- Adicione outros botões de plataforma aqui -->
+                        </div>
+
+                        <!-- Iframe Container -->
+                        <div id="platform-display" class="aspect-w-16 aspect-h-9 h-[400px] sm:h-[600px] bg-black rounded-md overflow-hidden border border-gray-700">
+                             <iframe id="platform-iframe" 
+                                src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=2119922" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:none;"
+                                class="transition-opacity duration-300 ease-in-out">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <!-- Intel Feed Section -->
-        <section id="intel-feed" class="py-20 sm:py-28">
+        <section id="intel-feed" class="py-20 sm:py-28 bg-gray-900/50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div data-scroll>
                     <h2 class="text-3xl md:text-4xl font-hacker text-neon-green mb-12 tracking-wider font-bold text-center glitch-hover">Write-Ups & Relatórios</h2>
@@ -323,7 +385,7 @@
         </section>
 
         <!-- Education Section -->
-        <section id="education" class="py-20 sm:py-28 bg-gray-900/50">
+        <section id="education" class="py-20 sm:py-28">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div data-scroll>
                     <h2 class="text-3xl md:text-4xl font-hacker text-neon-green mb-16 tracking-wider font-bold text-center glitch-hover">Formação Acadêmica</h2>
@@ -334,7 +396,7 @@
                         <!-- Item da Timeline -->
                         <div class="relative mb-12">
                             <div class="absolute left-4 sm:left-1/2 top-2 w-4 h-4 bg-neon-green rounded-full -translate-x-1/2 border-4 border-gray-900"></div>
-                            <div class="sm:ml-[55%] sm:pl-8">
+                            <div class="ml-10 sm:ml-[55%] sm:pl-8">
                                 <div class="bg-gray-900/70 backdrop-blur-sm border border-gray-700 rounded-lg p-6 shadow-lg">
                                     <h3 class="text-xl font-semibold text-white">Fatec Mogi Mirim</h3>
                                     <p class="text-neon-green font-hacker mt-1">Tecnólogo, Análise e Desenvolvimento de Sistemas</p>
@@ -346,7 +408,7 @@
                         <!-- Item da Timeline -->
                         <div class="relative">
                             <div class="absolute left-4 sm:left-1/2 top-2 w-4 h-4 bg-neon-green rounded-full -translate-x-1/2 border-4 border-gray-900"></div>
-                            <div class="sm:text-right sm:w-[45%] sm:pr-8">
+                            <div class="sm:text-right sm:w-[45%] sm:pr-8 ml-10 sm:ml-0">
                                 <div class="bg-gray-900/70 backdrop-blur-sm border border-gray-700 rounded-lg p-6 shadow-lg">
                                     <h3 class="text-xl font-semibold text-white">ETEC Pedro Ferreira Alves</h3>
                                     <p class="text-neon-green font-hacker mt-1">Técnico, Análise e Desenvolvimento de Sistemas</p>
@@ -360,7 +422,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 sm:py-28">
+        <section id="contact" class="py-20 sm:py-28 bg-gray-900/50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <div data-scroll>
                     <h2 class="text-3xl md:text-4xl font-hacker text-neon-green mb-8 tracking-wider font-bold glitch-hover">Estabelecer Contato</h2>
@@ -412,7 +474,7 @@
         const navLinks = document.querySelectorAll('header nav a');
 
         function setActiveLink() {
-            let current = '';
+            let current = 'hero'; // Default to hero
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 if (pageYOffset >= sectionTop - 70) {
@@ -421,11 +483,11 @@
             });
 
             navLinks.forEach(link => {
-                link.classList.remove('text-white', 'bg-gray-900');
+                link.classList.remove('text-neon-green', 'bg-gray-800');
                 link.classList.add('text-gray-300');
                 if (link.href.includes(current)) {
                     link.classList.remove('text-gray-300');
-                    link.classList.add('text-white', 'bg-gray-900');
+                    link.classList.add('text-neon-green', 'bg-gray-800');
                 }
             });
         }
@@ -456,7 +518,6 @@
         // --- Script para header dinâmico ---
         const header = document.querySelector('header');
         const checkHeader = () => {
-            // Adiciona fundo ao header após rolar 50px
             if (window.scrollY > 50) {
                 header.classList.add('bg-black/80', 'backdrop-blur-md', 'shadow-lg', 'shadow-black/20');
             } else {
@@ -464,8 +525,39 @@
             }
         };
         window.addEventListener('scroll', checkHeader);
-        // Garante que o estado inicial seja verificado no carregamento da página
         document.addEventListener('DOMContentLoaded', checkHeader);
+
+        // --- Script para a seção de Plataformas ---
+        const platformSelector = document.getElementById('platform-selector');
+        const platformIframe = document.getElementById('platform-iframe');
+
+        // URLs dos seus perfis. Troque o ID do Hack The Box pelo seu.
+        const platformUrls = {
+            tryhackme: 'https://tryhackme.com/p/DaniloSOliveira',
+            hackthebox: 'https://app.hackthebox.com/profile/1648397',
+            hackingclub: 'https://app.hackingclub.com/profile/user/7890'
+        };
+
+        platformSelector.addEventListener('click', (e) => {
+            const clickedButton = e.target.closest('.platform-btn');
+            if (!clickedButton) return;
+
+            const platform = clickedButton.dataset.platform;
+
+            // Animação de fade para a troca do iframe
+            platformIframe.style.opacity = '0';
+            
+            setTimeout(() => {
+                platformIframe.src = platformUrls[platform];
+                platformIframe.style.opacity = '1';
+            }, 300);
+
+            // Atualiza o estilo do botão ativo
+            platformSelector.querySelectorAll('.platform-btn').forEach(btn => {
+                btn.classList.remove('active-platform-btn');
+            });
+            clickedButton.classList.add('active-platform-btn');
+        });
 
         // --- Inicializa ícones Lucide ---
         lucide.createIcons();
